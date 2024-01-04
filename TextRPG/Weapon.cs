@@ -31,7 +31,7 @@ public class Weapon : Item
 
     public override void print()
     {
-        Console.WriteLine($"{name} | 공격력+{atk} | {description}");
+        Console.Write($"{name} | 공격력+{atk} | {description}");
     }
 
     public int Atk()

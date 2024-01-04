@@ -30,7 +30,7 @@ public class Armor : Item
 
     public override void print()
     {
-        Console.WriteLine($"{name} | 방어력+{def} | {description}");
+        Console.Write($"{name} | 방어력+{def} | {description}");
     }
 
     public int Def()

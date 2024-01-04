@@ -3,10 +3,12 @@
     internal class GameManager
     {
         Player player;
+        Shop shop;
 
         public GameManager()
         {
             player = new Player("GGB");
+            shop = new Shop();
         }
 
         public void GameStart()
@@ -74,7 +76,34 @@
                 else if (str == "3")
                 {
                     // 상점
-                    break;
+                    Console.Write($"보유 골드 : {player.gold}");
+                    shop.print();
+                    Console.WriteLine("1. 아이템 구매");
+                    Console.WriteLine("2. 아이템 판매");
+                    Console.WriteLine("3. 나가기");
+
+                    Console.Write($"{player.getName()} : ");
+                    str = Console.ReadLine();
+
+                    if (str == "1")
+                    {
+                        // 아이템 구매
+                        
+                        break;
+                    }
+                    if (str == "2")
+                    {
+                        // 아이템 판매
+                        break;
+                    }
+                    if (str == "3")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("잘못된 입력입니다.");
+                    }
                 }
                 else
                 {

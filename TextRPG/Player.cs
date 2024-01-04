@@ -7,7 +7,7 @@ public class Player
     string name;
     string job;
     int hp;
-    int gold;
+    public int gold { get; set; }
     public int atk { get; set; }
     public int def { get; set; }
 

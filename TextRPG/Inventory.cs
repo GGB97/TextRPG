@@ -2,7 +2,7 @@
 
 public class Inventory
 {
-    public List<Item> items = new List<Item>();
+    public List<Item> items = new List<Item>(); // 인벤토리를 리스트로 하는건 낭비같긴 하지만 최대 용량을 생각하기 귀찮아서..
 
     public void print()
     {
@@ -15,6 +15,7 @@ public class Inventory
                     Console.Write("[E]");
 
                 item.print();
+                Console.WriteLine();
             }
         }
         else
@@ -37,6 +38,7 @@ public class Inventory
                     Console.Write("[E]");
 
                 item.print();
+                Console.WriteLine();
             }
         }
         else
