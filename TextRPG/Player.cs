@@ -10,12 +10,19 @@ public class Player
 	int hp;
 	int gold;
 
-	public Player()
+	public Player(string name)
 	{
-		this.level = 1;
+		level = 1;
+		this.name = name;
+		job = "용병";
 		atk = 10;
 		def = 5;
 		hp = 100;
 		gold = 1500;
+	}
+
+	public void printStatus()
+	{
+
 	}
 }
