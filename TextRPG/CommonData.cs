@@ -6,3 +6,9 @@ enum ItemType
     Armor,
     consumables
 }
+
+struct playerConst
+{
+    const int maxHp = 100;
+
+}

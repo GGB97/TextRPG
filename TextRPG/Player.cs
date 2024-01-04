@@ -5,6 +5,7 @@ using System.Numerics;
 public class Player
 {
     int level;
+    int exp;
     string name;
     string job;
     int hp;
@@ -20,6 +21,7 @@ public class Player
     public Player(string name)
     {
         level = 1;
+        exp = 0;
         this.name = name;
         job = "용병";
         atk = 10;

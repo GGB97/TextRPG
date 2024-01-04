@@ -4,11 +4,13 @@
     {
         Player player;
         Shop shop;
+        DungeonManager dungeonManager;
 
         public GameManager()
         {
             player = new Player("GGB");
             shop = new Shop();
+            dungeonManager = new DungeonManager();
         }
 
         public void GameStart()
@@ -21,7 +23,7 @@
                 Console.WriteLine("1. 상태 보기");
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
-                Console.WriteLine("3. 던전 입장");
+                Console.WriteLine("4. 던전 입장");
 
                 Console.Write($"{player.getName()} : ");
                 string str = Console.ReadLine();
@@ -42,7 +44,7 @@
                         }
                         else
                         {
-                            Console.WriteLine("잘못된 입력입니다.");
+                            Console.Write($"{str} 은(는) 잘못된 입력입니다.");
                         }
                     }
                 }
@@ -70,7 +72,7 @@
                         }
                         else
                         {
-                            Console.WriteLine("잘못된 입력입니다.");
+                            Console.Write($"{str} 은(는) 잘못된 입력입니다.");
                         }
                     }
                 }
@@ -105,19 +107,19 @@
                         }
                         else
                         {
-                            Console.WriteLine("잘못된 입력입니다.");
+                            Console.Write($"{str} 은(는) 잘못된 입력입니다.");
                         }
                     }
                 }
                 else if (str == "4")
                 {
                     // 던전
-
+                    dungeonManager.Select(player);
                 }
 
                 else
                 {
-                    Console.WriteLine("잘못된 입력입니다.");
+                    Console.Write($"{str} 은(는) 잘못된 입력입니다.");
                 }
             }
 
