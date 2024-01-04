@@ -25,12 +25,48 @@
                 {
                     // 상태 보기
                     player.printStatus();
-                    break;
+
+                    while (true)
+                    {
+                        Console.WriteLine("0. 나가기");
+                        str = Console.ReadLine();
+
+                        if (str == "1")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                        }
+                    }
                 }
                 else if (str == "2")
                 {
                     // 인벤토리
-                    break;
+                    player.printInven();
+
+                    while (true)
+                    {
+                        Console.WriteLine("1. 장착 관리");
+                        Console.WriteLine("2. 나가기");
+                        str = Console.ReadLine();
+
+                        if (str == "1")
+                        {
+                            //장비 관리
+                            player.EquipManager();
+                            break;
+                        }
+                        if (str == "2")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                        }
+                    }
                 }
                 else if (str == "3")
                 {

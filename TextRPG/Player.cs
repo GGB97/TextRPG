@@ -21,6 +21,38 @@ public class Player
 		def = 5;
 		hp = 100;
 		gold = 1500;
+        inventory = new Inventory();
+    }
+
+	public void EquipManager()
+	{
+		Console.WriteLine("[장비 관리]");
+
+		inventory.printNumbering();
+		string str; int num;
+		while (true)
+		{
+			Console.WriteLine("장착/해제 할 장비 : ");
+			str = Console.ReadLine();
+
+			num = int.Parse(str);
+			if(0 <= num && num < inventory.items.Count)
+			{
+				if (inventory.items[num].getEquip())	// 아이템이 착용되어 있으면 장착 해제
+				{
+                    inventory.items[num].unEquip();
+                }
+				else
+				{
+                    inventory.items[num].Equip();	// 장비 장착
+                }
+            }
+			else
+			{
+				Console.WriteLine("잘못된 입력입니다.");
+			}
+
+		}
 	}
 
 	public void printStatus()
@@ -33,5 +65,9 @@ public class Player
 			$"생명력 : {hp} \n" +
 			$"소지금 : {gold} G"
 			);
+	}
+	public void printInven()
+	{
+		inventory.print();
 	}
 }

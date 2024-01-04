@@ -3,10 +3,9 @@ using System.Runtime.CompilerServices;
 
 public class Weapon : Item
 {
-    bool is_Equip = false;
     int atk;
 
-    Weapon()
+    public Weapon()
     {
         type = (int)ItemType.Weapon;
     }
