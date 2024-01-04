@@ -20,6 +20,7 @@
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
 
+                Console.Write($"{player.getName()} : ");
                 string str = Console.ReadLine();
                 if (str == "1")
                 {
@@ -28,7 +29,8 @@
 
                     while (true)
                     {
-                        Console.WriteLine("0. 나가기");
+                        Console.WriteLine("1. 나가기");
+                        Console.Write($"{player.getName()} : ");
                         str = Console.ReadLine();
 
                         if (str == "1")
@@ -50,6 +52,7 @@
                     {
                         Console.WriteLine("1. 장착 관리");
                         Console.WriteLine("2. 나가기");
+                        Console.Write($"{player.getName()} : ");
                         str = Console.ReadLine();
 
                         if (str == "1")

@@ -6,19 +6,29 @@ public class Item
     protected int type;
     protected string name;
     protected string description;
+    protected int cost;
 
     protected Item()
     {
         is_Equip = false;
     }
 
-    public void Equip()
+    public virtual void Equip(Player player)
     {
-
+        if(type == (int)ItemType.Weapon || type == (int)ItemType.Armor) // 아이템이 무기or방어구 일때만
+        {
+            is_Equip = true;
+            Console.WriteLine($"{name}이(가) 착용 되었습니다.");
+        }
     }
-    public void unEquip()
+    public virtual void unEquip(Player player)
     {
+        if (type == (int)ItemType.Weapon || type == (int)ItemType.Armor)
+        {
+            is_Equip = false;
+            Console.WriteLine($"{name}이(가) 해제 되었습니다.");
 
+        }
     }
 
     public virtual void print()

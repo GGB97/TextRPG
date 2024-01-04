@@ -12,7 +12,7 @@ public class Inventory
             foreach (Item item in items)
             {
                 if (item.getEquip())
-                    Console.Write("[E] ");
+                    Console.Write("[E]");
 
                 item.print();
             }
@@ -31,10 +31,10 @@ public class Inventory
             Console.WriteLine("[아이템 목록]");
             foreach (Item item in items)
             {
-                Console.Write(num++);
+                Console.Write($"{num++}. ");
 
                 if (item.getEquip())
-                    Console.Write("[E] ");
+                    Console.Write("[E]");
 
                 item.print();
             }
