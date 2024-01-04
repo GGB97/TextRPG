@@ -13,6 +13,10 @@ public class Player
 
     Inventory inventory;
 
+    public Weapon eWeapon;
+    public Armor eArmor;
+
+
     public Player(string name)
     {
         level = 1;
@@ -25,6 +29,8 @@ public class Player
         inventory = new Inventory();
 
         inventory.items.Add(new Weapon("녹슨 검", "오래된 검", 2, 50));
+        inventory.items.Add(new Weapon("녹슨 검2", "오래된 검2", 3, 50));
+
         inventory.items.Add(new Armor("녹슨 갑옷", "오래된 갑옷", 5, 100));
     }
 

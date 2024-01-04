@@ -21,6 +21,16 @@ public class Weapon : Item
     public override void Equip(Player player)
     {
         base.Equip(player);
+        if(player.eWeapon == null)  //무기를 끼고 있지 않다면
+        {
+            player.eWeapon = this;
+        }
+        else
+        {
+            player.eWeapon.unEquip(player);
+            player.eWeapon = this;
+        }
+
         player.atk += atk;
     }
     public override void unEquip(Player player)
