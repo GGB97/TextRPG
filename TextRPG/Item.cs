@@ -6,7 +6,7 @@ public class Item
     protected int type;
     protected string name;
     protected string description;
-    protected int cost;
+    public int cost { get; set; }
 
     protected Item()
     {

@@ -83,9 +83,17 @@ public class Player
     {
         inventory.print();
     }
+    public void printInvenGold()
+    {
+        inventory.printGold();
+    }
 
     public string getName()
     {
         return name;
+    }
+    public void addItem(Item item)
+    {
+        inventory.items.Add(item);
     }
 }

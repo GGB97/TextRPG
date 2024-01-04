@@ -10,7 +10,7 @@ public class Armor : Item
     }
     public Armor(string name, string des, int def, int cost)
     {
-        type = (int)ItemType.Weapon;
+        type = (int)ItemType.Armor;
         this.name = name;
         this.description = des;
         this.def = def;

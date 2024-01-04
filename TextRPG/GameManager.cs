@@ -76,7 +76,7 @@
                 else if (str == "3")
                 {
                     // 상점
-                    Console.Write($"보유 골드 : {player.gold}");
+                    Console.WriteLine($"소지금 : {player.gold}");
                     shop.print();
                     Console.WriteLine("1. 아이템 구매");
                     Console.WriteLine("2. 아이템 판매");
@@ -88,15 +88,15 @@
                     if (str == "1")
                     {
                         // 아이템 구매
-                        
-                        break;
+                        shop.buy(player);
                     }
-                    if (str == "2")
+                    else if (str == "2")
                     {
                         // 아이템 판매
+                        shop.sell(player);
                         break;
                     }
-                    if (str == "3")
+                    else if (str == "3")
                     {
                         break;
                     }
