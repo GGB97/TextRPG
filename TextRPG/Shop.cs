@@ -63,12 +63,33 @@ public class Shop
     {
         Console.WriteLine("[아이템 판매] --- (0. 나가기)");
         Console.WriteLine($"소지금 : {player.gold}");
-        player.printInvenGold();
+        player.inventory.printGold();
 
         string str; int num;
         while (true)
         {
+            Console.Write($"{player.getName()} : ");
+            str = Console.ReadLine();
 
+            if (int.TryParse(str, out num))
+            {
+                num--;
+                if (0 <= num && num < player.inventory.items.Count)
+                {
+                    if (player.inventory.items[num].getEquip()) // 판매하려는 아이템이 장착되어 있다면.
+                        player.inventory.items[num].unEquip(player);
+
+                    player.gold += (int)(player.inventory.items[num].cost * 0.85f);
+                    Console.WriteLine($"{player.inventory.items[num].Name()} 이(가) 판매 되었습니다.");
+                    Console.WriteLine($"소지금 : {player.gold} G");
+                    player.inventory.items.RemoveAt(num);
+                    break;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"'{str}'은(는) 잘못된 입력입니다.");
+            }
         }
     }
 

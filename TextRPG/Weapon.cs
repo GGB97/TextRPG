@@ -5,10 +5,6 @@ public class Weapon : Item
 {
     int atk;
 
-    public Weapon()
-    {
-        type = (int)ItemType.Weapon;
-    }
     public Weapon(string name, string des, int atk, int cost)
     {
         type = (int)ItemType.Weapon;
@@ -36,6 +32,7 @@ public class Weapon : Item
     public override void unEquip(Player player)
     {
         base.unEquip(player);
+        player.eWeapon = null;
         player.atk -= atk;
     }
 

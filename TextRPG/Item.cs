@@ -18,7 +18,7 @@ public class Item
         if(type == (int)ItemType.Weapon || type == (int)ItemType.Armor) // 아이템이 무기or방어구 일때만
         {
             is_Equip = true;
-            Console.WriteLine($"{name}이(가) 착용 되었습니다.");
+            Console.WriteLine($"{name} 이(가) 착용 되었습니다.");
         }
     }
     public virtual void unEquip(Player player)
@@ -26,7 +26,7 @@ public class Item
         if (type == (int)ItemType.Weapon || type == (int)ItemType.Armor)
         {
             is_Equip = false;
-            Console.WriteLine($"{name}이(가) 해제 되었습니다.");
+            Console.WriteLine($"{name} 이(가) 해제 되었습니다.");
 
         }
     }

@@ -21,6 +21,7 @@
                 Console.WriteLine("1. 상태 보기");
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
+                Console.WriteLine("3. 던전 입장");
 
                 Console.Write($"{player.getName()} : ");
                 string str = Console.ReadLine();
@@ -48,7 +49,7 @@
                 else if (str == "2")
                 {
                     // 인벤토리
-                    player.printInven();
+                    player.inventory.print();
 
                     while (true)
                     {
@@ -78,33 +79,42 @@
                     // 상점
                     Console.WriteLine($"소지금 : {player.gold}");
                     shop.print();
-                    Console.WriteLine("1. 아이템 구매");
-                    Console.WriteLine("2. 아이템 판매");
-                    Console.WriteLine("3. 나가기");
 
-                    Console.Write($"{player.getName()} : ");
-                    str = Console.ReadLine();
-
-                    if (str == "1")
+                    while (true)
                     {
-                        // 아이템 구매
-                        shop.buy(player);
-                    }
-                    else if (str == "2")
-                    {
-                        // 아이템 판매
-                        shop.sell(player);
-                        break;
-                    }
-                    else if (str == "3")
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("잘못된 입력입니다.");
+                        Console.WriteLine("1. 아이템 구매");
+                        Console.WriteLine("2. 아이템 판매");
+                        Console.WriteLine("3. 나가기");
+                        Console.Write($"{player.getName()} : ");
+                        str = Console.ReadLine();
+                        if (str == "1")
+                        {
+                            // 아이템 구매
+                            shop.buy(player);
+                            break;
+                        }
+                        else if (str == "2")
+                        {
+                            // 아이템 판매
+                            shop.sell(player);
+                            break;
+                        }
+                        else if (str == "3")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                        }
                     }
                 }
+                else if (str == "4")
+                {
+                    // 던전
+
+                }
+
                 else
                 {
                     Console.WriteLine("잘못된 입력입니다.");

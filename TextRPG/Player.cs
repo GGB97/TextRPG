@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Numerics;
 
 public class Player
@@ -11,8 +12,7 @@ public class Player
     public int atk { get; set; }
     public int def { get; set; }
 
-    Inventory inventory;
-
+    public Inventory inventory;
     public Weapon eWeapon;
     public Armor eArmor;
 
@@ -29,9 +29,7 @@ public class Player
         inventory = new Inventory();
 
         inventory.items.Add(new Weapon("녹슨 검", "오래된 검", 2, 50));
-        inventory.items.Add(new Weapon("녹슨 검2", "오래된 검2", 3, 50));
-
-        inventory.items.Add(new Armor("녹슨 갑옷", "오래된 갑옷", 5, 100));
+        inventory.items.Add(new Armor("녹슨 갑옷", "오래된 갑옷", 4, 100));
     }
 
     public void EquipManager()
@@ -76,16 +74,20 @@ public class Player
             $"공격력 : {atk} \n" +
             $"방어력 : {def} \n" +
             $"생명력 : {hp} \n" +
-            $"소지금 : {gold} G"
+            $"소지금 : {gold} G \n"
             );
-    }
-    public void printInven()
-    {
-        inventory.print();
-    }
-    public void printInvenGold()
-    {
-        inventory.printGold();
+
+        if (eWeapon != null)
+        {
+            Console.WriteLine($"무기 : {eWeapon.Name()}");
+        }
+        else { Console.WriteLine("무기 : 없음 "); }
+
+        if (eArmor != null)
+        {
+            Console.WriteLine($"방어구 : {eArmor.Name()} \n");
+        }
+        else { Console.WriteLine("방어구 : 없음 \n"); }
     }
 
     public string getName()

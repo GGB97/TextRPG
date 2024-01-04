@@ -4,10 +4,6 @@ public class Armor : Item
 {
     int def;
 
-    Armor()
-    {
-        type = (int)ItemType.Armor;
-    }
     public Armor(string name, string des, int def, int cost)
     {
         type = (int)ItemType.Armor;
@@ -35,6 +31,7 @@ public class Armor : Item
     public override void unEquip(Player player)
     {
         base.unEquip(player);
+        player.eArmor = null;
         player.def -= def;
     }
 
