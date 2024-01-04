@@ -9,6 +9,5 @@ enum ItemType
 
 struct playerConst
 {
-    const int maxHp = 100;
-
+    public const int maxHp = 100;
 }

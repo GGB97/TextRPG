@@ -8,7 +8,7 @@ public class Player
     int exp;
     string name;
     string job;
-    int hp;
+    public int hp { get; set; }
     public int gold { get; set; }
     public int atk { get; set; }
     public int def { get; set; }
@@ -24,7 +24,7 @@ public class Player
         exp = 0;
         this.name = name;
         job = "용병";
-        atk = 10;
+        atk = 2;
         def = 5;
         hp = 100;
         gold = 1500;
