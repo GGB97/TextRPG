@@ -24,6 +24,7 @@
                 if (str == "1")
                 {
                     // 상태 보기
+                    player.printStatus();
                     break;
                 }
                 else if (str == "2")
@@ -46,7 +47,8 @@
 
         static void Main(string[] args)
         {
-            
+            GameManager gm = new GameManager();
+            gm.GameStart();
         }
     }
 }

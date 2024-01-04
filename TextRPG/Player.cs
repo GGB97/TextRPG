@@ -10,6 +10,8 @@ public class Player
 	int hp;
 	int gold;
 
+	Inventory inventory;
+
 	public Player(string name)
 	{
 		level = 1;
@@ -23,6 +25,13 @@ public class Player
 
 	public void printStatus()
 	{
-
+		Console.WriteLine(
+			$"LV : {level} \n" +
+			$"{name} (job) \n" +
+			$"공격력 : {atk} \n" +
+			$"방어력 : {def} \n" +
+			$"생명력 : {hp} \n" +
+			$"소지금 : {gold} G"
+			);
 	}
 }
