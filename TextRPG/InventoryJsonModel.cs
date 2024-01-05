@@ -20,7 +20,7 @@ public class InventoryJsonModel
         }
 	}
 
-    public string getInvenJson()
+    public string SerializeToString()
     {
         string jsonStr;
         jsonStr = JsonConvert.SerializeObject(this);

@@ -15,7 +15,7 @@ public class ArmorJsonModel : ItemJsonModel
         def = armor.getDef();
     }
 
-    public string getArmorJson()
+    public string SerializeToString()
     {
         string jsonStr;
         jsonStr = JsonConvert.SerializeObject(this);

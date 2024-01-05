@@ -38,12 +38,12 @@ public class PlayerJsonModel
         eWeapon = new(player.eWeapon);
         eArmor = new(player.eArmor);
 
-        invenStr = inventory.getInvenJson();
-        weponStr = eWeapon.getWeaponJson();
-        armorStr = eArmor.getArmorJson();
+        invenStr = inventory.SerializeToString();
+        weponStr = eWeapon.SerializeToString();
+        armorStr = eArmor.SerializeToString();
     }
 
-    public string getPlayerJson()
+    public string SerializeToString()
     {
         var option = new JsonSerializerOptions() { WriteIndented = true };
         string jsonStr = JsonSerializer.Serialize(this, option);

@@ -8,7 +8,7 @@ public class DataManager
 	public void Save(Player player)
 	{
         sD = new PlayerJsonModel(player);
-        string str = sD.getPlayerJson();
+        string str = sD.SerializeToString();
 
         Console.WriteLine(str);
         Console.WriteLine();

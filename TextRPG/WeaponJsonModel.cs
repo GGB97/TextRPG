@@ -15,7 +15,7 @@ public class WeaponJsonModel : ItemJsonModel
         atk = weapon.getAtk();
     }
 
-    public string getWeaponJson() 
+    public string SerializeToString() 
     {
         string jsonStr;
         jsonStr = JsonConvert.SerializeObject(this);
