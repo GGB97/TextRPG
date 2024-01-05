@@ -26,6 +26,7 @@
                 Console.WriteLine("4. 던전 입장");
                 Console.WriteLine("5. 휴식");
                 Console.WriteLine("9. 저장");
+                Console.WriteLine("0. 종료");
 
                 Console.Write($"{player.name} : ");
                 string str = Console.ReadLine();
@@ -153,6 +154,11 @@
                 else if (str == "9")
                 {
                     DataManager.I.Save(player);
+                }
+                else if (str == "0")
+                {
+                    Console.WriteLine("게임을 종료합니다.");
+                    break;
                 }
                 else
                 {
