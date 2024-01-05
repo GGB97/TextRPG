@@ -12,7 +12,8 @@ public class DataManager
         sD = new PlayerJsonModel(player);
         jsonStr = sD.SerializeToString();
 
-        Console.WriteLine(jsonStr); // 출력 대신 저장
+        //Console.WriteLine(jsonStr);
+        File.WriteAllText($"SaveData_{player.name}.json", jsonStr);
     }
 
     public void Load(Player player)
