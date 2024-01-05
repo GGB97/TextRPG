@@ -40,7 +40,7 @@ public class Armor : Item
         Console.Write($"{name} | 방어력+{def} | {description}");
     }
 
-    public int Def()
+    public int getDef()
     {
         return def;
     }

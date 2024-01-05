@@ -40,7 +40,7 @@ public class Shop
                     {
                         player.addItem(items[num]);
                         player.gold -= items[num].cost;
-                        Console.WriteLine($"{items[num].Name()}을(를) 구매했습니다.");
+                        Console.WriteLine($"{items[num].getName()}을(를) 구매했습니다.");
                         Console.WriteLine($"소지금 : {player.gold}");
                         break;
                     }
@@ -83,7 +83,7 @@ public class Shop
                         player.inventory.items[num].unEquip(player);
 
                     player.gold += (int)(player.inventory.items[num].cost * 0.85f);
-                    Console.WriteLine($"{player.inventory.items[num].Name()} 이(가) 판매 되었습니다.");
+                    Console.WriteLine($"{player.inventory.items[num].getName()} 이(가) 판매 되었습니다.");
                     Console.WriteLine($"소지금 : {player.gold} G");
                     player.inventory.items.RemoveAt(num);
                     break;

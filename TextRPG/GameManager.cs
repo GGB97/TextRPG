@@ -25,6 +25,7 @@
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전 입장");
                 Console.WriteLine("5. 휴식");
+                Console.WriteLine("9. 저장");
 
                 Console.Write($"{player.name} : ");
                 string str = Console.ReadLine();
@@ -148,6 +149,10 @@
                             Console.WriteLine($"{str} 은(는) 잘못된 입력입니다.");
                         }
                     }
+                }
+                else if (str == "9")
+                {
+                    DataManager.I.Save(player);
                 }
                 else
                 {

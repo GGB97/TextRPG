@@ -41,7 +41,7 @@ public class Weapon : Item
         Console.Write($"{name} | 공격력+{atk} | {description}");
     }
 
-    public float Atk()
+    public float getAtk()
     {
         return atk;
     }

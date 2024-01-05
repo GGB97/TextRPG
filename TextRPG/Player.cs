@@ -7,7 +7,7 @@ public class Player
     int level;
     public int exp { get; set; }
     int maxExp;
-    public string name { get; }
+    public string name { get; set;}
     string job;
     public int hp { get; set; }
     public int gold { get; set; }
@@ -84,13 +84,13 @@ public class Player
 
         if (eWeapon != null)
         {
-            Console.WriteLine($"무기 : {eWeapon.Name()}");
+            Console.WriteLine($"무기 : {eWeapon.getName()}");
         }
         else { Console.WriteLine("무기 : 없음 "); }
 
         if (eArmor != null)
         {
-            Console.WriteLine($"방어구 : {eArmor.Name()} \n");
+            Console.WriteLine($"방어구 : {eArmor.getName()} \n");
         }
         else { Console.WriteLine("방어구 : 없음"); }
         Console.WriteLine("---------------------\n");
@@ -136,5 +136,13 @@ public class Player
     public int getmaxExp()
     {
         return maxExp;
+    }
+    public int getLevel()
+    {
+        return level;
+    }
+    public string getJob()
+    {
+        return job;
     }
 }
