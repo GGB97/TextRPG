@@ -24,6 +24,7 @@
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전 입장");
+                Console.WriteLine("5. 휴식");
 
                 Console.Write($"{player.name} : ");
                 string str = Console.ReadLine();
@@ -121,7 +122,33 @@
                     // 던전
                     dungeonManager.Select(player);
                 }
+                else if(str == "5")
+                {
+                    Console.WriteLine("500G를 내면 휴식을 할 수 있습니다. (빈사상태 일 경우 1000G) ");
+                    Console.WriteLine($"소지금 : {player.gold} G");
 
+                    while (true)
+                    {
+                        Console.WriteLine("1. 휴식하기");
+                        Console.WriteLine("0. 나가기");
+
+                        Console.Write($"{player.name} : ");
+                        str = Console.ReadLine() ;
+
+                        if(str == "1")
+                        {
+                            player.Rest();
+                        }
+                        else if(str == "0")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{str} 은(는) 잘못된 입력입니다.");
+                        }
+                    }
+                }
                 else
                 {
                     Console.Write($"{str} 은(는) 잘못된 입력입니다.");

@@ -49,6 +49,8 @@ public class Dungeon
 
         Console.Write($"생명력 : {player.hp} -> ");
         player.hp -= hpCost;
+        if (player.hp < 0)
+            player.hp = 0;
         Console.WriteLine($"{player.hp} (-{hpCost})");
 
         Console.Write($"소지금 : {player.gold} -> ");

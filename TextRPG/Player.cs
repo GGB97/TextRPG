@@ -119,6 +119,20 @@ public class Player
         }
     }
 
+    public void Rest()
+    {
+        if (hp == 0)
+        {
+            gold -= 1000;
+        }
+        else
+        {
+            gold -= 500;
+        }
+        hp = playerConst.maxHp;
+        Console.WriteLine($"체력을 회복했습니다. (소지금 : {gold}) G");
+    }
+
     public int getmaxExp()
     {
         return maxExp;
