@@ -4,9 +4,28 @@ public class Inventory
 {
     public List<Item> items = new List<Item>(); // 인벤토리를 리스트로 하는건 낭비같긴 하지만 최대 용량을 생각하기 귀찮아서..
 
+    public Inventory()
+    {
+        items = new List<Item>();
+    }
+    public Inventory(InventoryJsonModel data)
+    {
+        foreach (var item in data.items)
+        {
+            if (item.GetType() == typeof(WeaponJsonModel))
+            {
+                items.Add(new Weapon((WeaponJsonModel)item));
+            }
+            else if (item.GetType() == typeof(ArmorJsonModel))
+            {
+                items.Add(new Armor((ArmorJsonModel)item));
+            }
+        }
+    }
+
     public void print()
     {
-        if(items != null)
+        if (items != null)
         {
             Console.WriteLine("[아이템 목록]");
             Console.WriteLine("-----------------");

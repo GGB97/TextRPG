@@ -8,9 +8,18 @@ public class Armor : Item
     {
         type = (int)ItemType.Armor;
         this.name = name;
-        this.description = des;
+        description = des;
         this.def = def;
         this.cost = cost;
+    }
+    public Armor(ArmorJsonModel data)
+    {
+        is_Equip = data.is_Equip;
+        type = data.type;
+        name = data.name;
+        description = data.description;
+        def = data.def;
+        cost = data.cost;
     }
 
     public override void Equip(Player player)

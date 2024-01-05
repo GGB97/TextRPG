@@ -9,9 +9,18 @@ public class Weapon : Item
     {
         type = (int)ItemType.Weapon;
         this.name = name;
-        this.description = des;
+        description = des;
         this.atk = atk;
         this.cost = cost;
+    }
+    public Weapon(WeaponJsonModel weaponData)
+    {
+        is_Equip = weaponData.is_Equip;
+        type = weaponData.type;
+        name = weaponData.name;
+        description = weaponData.description;
+        atk = weaponData.atk;
+        cost = weaponData.cost;
     }
 
     public override void Equip(Player player)

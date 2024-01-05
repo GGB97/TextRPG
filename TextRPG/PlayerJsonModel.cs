@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Text.Json;
 
 public class PlayerJsonModel
@@ -6,7 +7,7 @@ public class PlayerJsonModel
     public int level { get; set; }
     public int exp { get; set; }
     public int maxExp { get; set; }
-    public string name { get; }
+    public string name { get; set; }
     public string job { get; set; }
     public int hp { get; set; }
     public int gold { get; set; }
@@ -18,11 +19,31 @@ public class PlayerJsonModel
     public string armorStr { get; set; }
 
 
-    private InventoryJsonModel inventory;
-    private WeaponJsonModel eWeapon;
-    private ArmorJsonModel eArmor;
+    public InventoryJsonModel inventory;
+    public WeaponJsonModel eWeapon;
+    public ArmorJsonModel eArmor;
 
-    public PlayerJsonModel(Player player) 
+    public PlayerJsonModel()
+    {
+        level = 0;
+        exp = 0;
+        maxExp = 0;
+        name = null;
+        job = null;
+        hp = 0;
+        gold = 0;
+        atk = 0;
+        def = 0;
+
+        inventory = new();
+        eWeapon = new();
+        eArmor = new();
+
+        invenStr = null;
+        weponStr = null;
+        armorStr = null;
+    }
+    public PlayerJsonModel(Player player)
     {
         level = player.getLevel();
         exp = player.exp;
@@ -49,5 +70,24 @@ public class PlayerJsonModel
         string jsonStr = JsonSerializer.Serialize(this, option);
 
         return jsonStr;
+    }
+
+    public static PlayerJsonModel Deserialize(string str)
+    {
+        PlayerJsonModel playerData = new();
+        playerData = JsonSerializer.Deserialize<PlayerJsonModel>(str);
+
+        playerData.inventory = playerData.inventory.Deserialize(playerData.invenStr);
+        playerData.eWeapon = playerData.eWeapon.Deserialize(playerData.weponStr);
+        playerData.eArmor = playerData.eArmor.Deserialize(playerData.armorStr);
+
+        return playerData;
+    }
+
+    public static Player ModelToPlayer(PlayerJsonModel model)
+    {
+        Player player = new(model);
+
+        return player;
     }
 }

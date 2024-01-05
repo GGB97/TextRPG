@@ -35,6 +35,22 @@ public class Player
         inventory.items.Add(new Weapon("녹슨 검", "오래된 검", 2, 50));
         inventory.items.Add(new Armor("녹슨 갑옷", "오래된 갑옷", 4, 100));
     }
+    public Player(PlayerJsonModel playerData)
+    {
+        level = playerData.level;
+        exp = playerData.exp;
+        maxExp = playerData.maxExp;
+        name = playerData.name;
+        job = playerData.job;
+        hp = playerData.hp;
+        gold = playerData.gold;
+        atk = playerData.atk;
+        def = playerData.def;
+
+        inventory = new(playerData.inventory);
+        eWeapon = new(playerData.eWeapon);
+        eArmor = new(playerData.eArmor);
+    }
 
     public void EquipManager()
     {
