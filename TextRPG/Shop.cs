@@ -28,7 +28,7 @@ public class Shop
         string str; int num;
         while (true)
         {
-            Console.Write($"{player.getName()} : ");
+            Console.Write($"{player.name} : ");
             str = Console.ReadLine();
 
             if (int.TryParse(str, out num))
@@ -71,7 +71,7 @@ public class Shop
         string str; int num;
         while (true)
         {
-            Console.Write($"{player.getName()} : ");
+            Console.Write($"{player.name} : ");
             str = Console.ReadLine();
 
             if (int.TryParse(str, out num))

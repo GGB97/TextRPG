@@ -5,12 +5,13 @@ using System.Numerics;
 public class Player
 {
     int level;
-    int exp;
-    string name;
+    public int exp { get; set; }
+    int maxExp;
+    public string name { get; }
     string job;
     public int hp { get; set; }
     public int gold { get; set; }
-    public int atk { get; set; }
+    public float atk { get; set; }
     public int def { get; set; }
 
     public Inventory inventory;
@@ -28,6 +29,7 @@ public class Player
         def = 5;
         hp = 100;
         gold = 1500;
+        maxExp = level * 100;
         inventory = new Inventory();
 
         inventory.items.Add(new Weapon("녹슨 검", "오래된 검", 2, 50));
@@ -70,8 +72,9 @@ public class Player
 
     public void printStatus()
     {
+        Console.WriteLine("---------------------");
         Console.WriteLine(
-            $"LV : {level} \n" +
+            $"LV : {level} ({exp}/{maxExp})\n" +
             $"{name} (job) \n" +
             $"공격력 : {atk} \n" +
             $"방어력 : {def} \n" +
@@ -89,15 +92,35 @@ public class Player
         {
             Console.WriteLine($"방어구 : {eArmor.Name()} \n");
         }
-        else { Console.WriteLine("방어구 : 없음 \n"); }
+        else { Console.WriteLine("방어구 : 없음"); }
+        Console.WriteLine("---------------------\n");
     }
 
-    public string getName()
-    {
-        return name;
-    }
     public void addItem(Item item)
     {
         inventory.items.Add(item);
+    }
+
+    public void Levelup()
+    {
+        if(exp >= maxExp)
+        {
+            exp -= maxExp;
+            level++;
+            maxExp = level * 100;
+            atk += 0.5f;
+            def += 1;
+            Console.WriteLine("레벨이 올랐습니다");
+            printStatus();
+        }
+        else
+        {
+            Console.WriteLine("경험치가 부족합니다.");
+        }
+    }
+
+    public int getmaxExp()
+    {
+        return maxExp;
     }
 }

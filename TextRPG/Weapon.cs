@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 
 public class Weapon : Item
 {
-    int atk;
+    float atk;
 
-    public Weapon(string name, string des, int atk, int cost)
+    public Weapon(string name, string des, float atk, int cost)
     {
         type = (int)ItemType.Weapon;
         this.name = name;
@@ -41,7 +41,7 @@ public class Weapon : Item
         Console.Write($"{name} | 공격력+{atk} | {description}");
     }
 
-    public int Atk()
+    public float Atk()
     {
         return atk;
     }

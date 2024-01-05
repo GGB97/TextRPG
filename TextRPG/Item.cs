@@ -40,17 +40,9 @@ public class Item
     {
         return is_Equip;
     }
-    public int Type()
-    {
-        return type;
-    }
     public string Name()
     {
         return name;
-    }
-    public string Description()
-    {
-        return description;
     }
 }
 

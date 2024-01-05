@@ -4,24 +4,28 @@ public class Dungeon
 {
     int level;  //던전 난이도
 	public int rSpec; // 권장 방어력
-	int reward; // 보상
+	int rGold; // 보상 골드
+    int rExp;  // 보상 경험치
 	public Dungeon(int level)
 	{
         this.level = level;
 		if(level == 1)
 		{
 			rSpec = 5;
-			reward = 1000;
+            rGold = 1000;
+            rExp = 10;
 		}
         else if (level == 2)
         {
             rSpec = 10;
-            reward = 1700;
+            rGold = 1700;
+            rExp = 25;
         }
         else if (level == 3)
         {
             rSpec = 20;
-            reward = 2500;
+            rGold = 2500;
+            rExp = 40;
         }
     }
 
@@ -30,8 +34,8 @@ public class Dungeon
         Random rand = new Random();
         int hpCost = rand.Next(20 + (rSpec - player.def), 36 + (rSpec - player.def));
 
-        float n = rand.Next(player.atk, (player.atk * 2) + 1);
-        float bonus = reward * (n * 0.1f);
+        float n = rand.Next((int)player.atk, ((int)player.atk * 2) + 1);
+        float bonus = rGold * (n * 0.1f);
 
         Console.WriteLine(
             "축하합니다!!\n" + 
@@ -39,13 +43,17 @@ public class Dungeon
             "[탐험 결과]"
             );
 
+        Console.Write($"경험치 : {player.exp}/{player.getmaxExp()} -> ");
+        player.exp += rExp;
+        Console.WriteLine($"{player.exp}/{player.getmaxExp()} (+{rExp})");
+
         Console.Write($"생명력 : {player.hp} -> ");
         player.hp -= hpCost;
         Console.WriteLine($"{player.hp} (-{hpCost})");
 
         Console.Write($"소지금 : {player.gold} -> ");
-        player.gold += reward + (int)bonus;
-        Console.WriteLine($"{player.gold} G (+{reward + bonus})");
+        player.gold += rGold + (int)bonus;
+        Console.WriteLine($"{player.gold} G (+{rGold + bonus}) \n");
     }
 
     public void Fail(Player player)
@@ -57,6 +65,6 @@ public class Dungeon
             );
         Console.Write($"생명력 : {player.hp} -> ");
         player.hp -= playerConst.maxHp / 2;    // 그냥 실패하면 최대 체력의 절반 줄어들게 하고 싶어서.
-        Console.WriteLine($"{player.hp} (-{playerConst.maxHp / 2})");
+        Console.WriteLine($"{player.hp} (-{playerConst.maxHp / 2}) \n");
     }
 }

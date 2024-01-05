@@ -25,7 +25,7 @@
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전 입장");
 
-                Console.Write($"{player.getName()} : ");
+                Console.Write($"{player.name} : ");
                 string str = Console.ReadLine();
                 if (str == "1")
                 {
@@ -34,11 +34,16 @@
 
                     while (true)
                     {
-                        Console.WriteLine("1. 나가기");
-                        Console.Write($"{player.getName()} : ");
+                        Console.WriteLine("0. 나가기");
+                        Console.WriteLine("1. 레벨업");
+                        Console.Write($"{player.name} : ");
                         str = Console.ReadLine();
 
                         if (str == "1")
+                        {
+                            player.Levelup();
+                        }
+                        else if (str == "0")
                         {
                             break;
                         }
@@ -57,7 +62,7 @@
                     {
                         Console.WriteLine("1. 장착 관리");
                         Console.WriteLine("2. 나가기");
-                        Console.Write($"{player.getName()} : ");
+                        Console.Write($"{player.name} : ");
                         str = Console.ReadLine();
 
                         if (str == "1")
@@ -87,7 +92,7 @@
                         Console.WriteLine("1. 아이템 구매");
                         Console.WriteLine("2. 아이템 판매");
                         Console.WriteLine("3. 나가기");
-                        Console.Write($"{player.getName()} : ");
+                        Console.Write($"{player.name} : ");
                         str = Console.ReadLine();
                         if (str == "1")
                         {

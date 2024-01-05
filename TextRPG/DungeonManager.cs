@@ -15,7 +15,7 @@ public class DungeonManager
                 "2. 난이도 2 (방어력 10 이상 권장) \n" +
                 "3. 난이도 3 (방어력 20 이상 권장) \n"
                 );
-            Console.Write($"{player.getName()} : ");
+            Console.Write($"{player.name} : ");
             str = Console.ReadLine();
 
             if (str == "1" || str == "2" || str == "3")
