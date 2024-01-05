@@ -12,13 +12,13 @@ public class Inventory
     {
         foreach (var item in data.items)
         {
-            if (item.GetType() == typeof(WeaponJsonModel))
+            if (item.type == (int)ItemType.Weapon)    // type으로 구분
             {
-                items.Add(new Weapon((WeaponJsonModel)item));
+                items.Add(new Weapon(item));
             }
-            else if (item.GetType() == typeof(ArmorJsonModel))
+            else if (item.type == (int)ItemType.Armor)
             {
-                items.Add(new Armor((ArmorJsonModel)item));
+                items.Add(new Armor(item));
             }
         }
     }

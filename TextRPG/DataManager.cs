@@ -4,21 +4,24 @@ using System.Text.Json;
 public class DataManager
 {
 	public static DataManager I = new DataManager();
-    PlayerJsonModel sD;
-    public string jsonStr;
 
 	public void Save(Player player)
 	{
-        sD = new PlayerJsonModel(player);
-        jsonStr = sD.SerializeToString();
+        PlayerJsonModel sD = new PlayerJsonModel(player);
+        string jsonStr = sD.SerializeToString();
 
         //Console.WriteLine(jsonStr);
         File.WriteAllText($"SaveData_{player.name}.json", jsonStr);
     }
 
-    public void Load(Player player)
+    public Player Load(Player player)
     {
-        //PlayerJsonModel sD2 = PlayerJsonModel.Deserialize(jsonStr);
-        //Player p = PlayerJsonModel.ModelToPlayer(sD2);
+        // 추후 세이브 데이터 선택 기능 추가 예정
+        string jsonStr = File.ReadAllText($"SaveData_{player.name}.json");
+
+        PlayerJsonModel sD = PlayerJsonModel.Deserialize(jsonStr);
+        Player playerData = PlayerJsonModel.ModelToPlayer(sD);
+
+        return playerData;
     }
 }

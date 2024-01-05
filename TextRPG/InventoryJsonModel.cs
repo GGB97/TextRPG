@@ -13,11 +13,11 @@ public class InventoryJsonModel
 	{
 		foreach (var item in inven.items)
 		{
-			if (item.GetType() == typeof(Weapon))
+			if (item is Weapon)
 			{
 				items.Add(new WeaponJsonModel((Weapon)item));
 			}
-			else if (item.GetType() == typeof(Armor))
+			else if (item is Armor)
             {
                 items.Add(new ArmorJsonModel((Armor)item));
             }
@@ -33,6 +33,7 @@ public class InventoryJsonModel
 
     public InventoryJsonModel Deserialize(string str)
     {
+       // 여기서 어떻게 weapon/armor로 나눠야하는가?
        return JsonConvert.DeserializeObject<InventoryJsonModel>(str);
     }
 }

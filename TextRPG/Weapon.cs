@@ -13,13 +13,13 @@ public class Weapon : Item
         this.atk = atk;
         this.cost = cost;
     }
-    public Weapon(WeaponJsonModel weaponData)
+    public Weapon(ItemJsonModel weaponData)
     {
         is_Equip = weaponData.is_Equip;
         type = weaponData.type;
         name = weaponData.name;
         description = weaponData.description;
-        atk = weaponData.atk;
+        atk = weaponData.stat;
         cost = weaponData.cost;
     }
 

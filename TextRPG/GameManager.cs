@@ -6,9 +6,9 @@
         Shop shop;
         DungeonManager dungeonManager;
 
-        public GameManager()
+        public GameManager(Player player)
         {
-            player = new Player("GGB");
+            this.player = player;
             shop = new Shop();
             dungeonManager = new DungeonManager();
         }
@@ -164,7 +164,10 @@
 
         static void Main(string[] args)
         {
-            GameManager gm = new GameManager();
+            Player player = new Player("GGB");
+            player = DataManager.I.Load(player);
+            GameManager gm = new GameManager(player);
+            
             gm.GameStart();
         }
     }

@@ -3,7 +3,8 @@ using System;
 
 public class ArmorJsonModel : ItemJsonModel
 {
-	public int def { get; set; }
+    [JsonProperty("stat")]
+    public int def { get; set; }
 
     public ArmorJsonModel()
     {

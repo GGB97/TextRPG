@@ -3,6 +3,7 @@ using System;
 
 public class WeaponJsonModel : ItemJsonModel
 {
+    [JsonProperty("stat")]
     public float atk { get; set; }
 
     public WeaponJsonModel()
