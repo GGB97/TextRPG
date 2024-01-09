@@ -170,10 +170,15 @@
 
         static void Main(string[] args)
         {
-            Player player = new Player("GGB");
-            player = DataManager.I.Load(player);
+            Player player;
+            string playerName = "GGB";
+            player = DataManager.I.Load(playerName);
+            if (player == null)
+            {
+                player = new Player("GGB");
+            }
             GameManager gm = new GameManager(player);
-            
+
             gm.GameStart();
         }
     }
